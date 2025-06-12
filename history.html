@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Auralance – Search History</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/filters.css">
+  <link rel="stylesheet" href="css/job-list.css">
+  <link rel="stylesheet" href="css/recently-posted.css">
+  <link rel="stylesheet" href="css/category-section.css">
+  <link rel="stylesheet" href="css/history.css">
+</head>
+<body>
+  <header class="header">
+    <div class="logo-block">
+      <span class="logo-aura"></span>
+      <span class="logo-text"><b>Auralance</b></span>
+    </div>
+    <nav class="menu">
+      <a href="index.html">Home</a>
+      <a href="find-work.html">Find work</a>
+      <a href="favorites.html">Favorites</a>
+      <a class="active" href="history.html">History</a>
+      <a href="subscription.html">Subscribe</a>
+      <a href="settings.html">Settings</a>
+      <a href="profile.html">Profile</a>
+      <a href="login.html">Log In</a>
+      <a href="signup.html">Sign Up</a>
+    </nav>
+  </header>
+
+  <section class="history-section">
+    <h2>Search History</h2>
+    <div class="history-controls">
+      <button class="auralance-btn" onclick="repeatLastSearch()">Repeat last search</button>
+      <button class="auralance-btn" onclick="clearHistory()">Clear history</button>
+    </div>
+    <table class="history-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Keywords</th>
+          <th>Category</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody id="history-body">
+        <!-- История будет подгружаться сюда через js (или статично, если пока нет логики) -->
+        <tr>
+          <td>1</td>
+          <td>AI, Automation</td>
+          <td>Development</td>
+          <td>2024-06-01</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Logo Design</td>
+          <td>Design</td>
+          <td>2024-05-31</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <script src="js/main.js"></script>
+  <script src="js/history.js"></script>
+</body>
+</html>

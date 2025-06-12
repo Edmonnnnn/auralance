@@ -1,0 +1,141 @@
+body {
+    background: #f4fafd; /* нежно-голубой фон, как на остальных страницах */
+  }
+  
+  .settings-section { 
+    max-width: 460px;
+    margin: 60px auto 0 auto;
+    background: rgba(255,255,255,0.93);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px 0 rgba(100, 80, 180, 0.13);
+    padding: 42px 36px 38px 36px;
+    text-align: center;
+  }
+  
+  .settings-section h2 {
+    font-size: 2.3em;
+    margin-bottom: 22px;
+    color: #7d57c1;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+  }
+  
+  .settings-form {
+    display: flex;
+    flex-direction: column;
+    gap: 38px;
+    align-items: stretch;
+    margin-top: 16px;
+  }
+  
+  .settings-block {
+    background: rgba(255,255,255,0.55);
+    border-radius: 16px;
+    box-shadow: 0 2px 14px 0 rgba(143,90,255,0.07);
+    padding: 22px 20px 20px 20px;
+    margin-bottom: 0;
+    text-align: left;
+    transition: box-shadow 0.2s;
+  }
+  .settings-block h3 {
+    font-size: 1.18em;
+    font-weight: 700;
+    color: #7d57c1;
+    margin-bottom: 13px;
+    margin-top: 0;
+  }
+  .settings-block label {
+    font-size: 1em;
+    font-weight: 500;
+    color: #222;
+    display: block;
+    margin-bottom: 7px;
+  }
+  .settings-block input[type="text"],
+  .settings-block input[type="email"],
+  .settings-block input[type="password"],
+  .settings-block select {
+    width: 100%;
+    font-size: 1em;
+    padding: 11px 13px;
+    border-radius: 10px;
+    border: 1.2px solid #e3e5ee;
+    margin-bottom: 13px;
+    background: #f8f8ff;
+    transition: border 0.2s;
+  }
+  .settings-block input[type="text"]:focus,
+  .settings-block input[type="email"]:focus,
+  .settings-block select:focus {
+    border: 1.5px solid #b79eff;
+    outline: none;
+  }
+  .settings-block input[type="checkbox"] {
+    margin-right: 7px;
+    accent-color: #a380e0;
+  }
+  
+  #change-password-btn {
+    margin: 0 0 0 0;
+    padding: 8px 22px;
+    background: #f7f0ff;
+    color: #7d57c1;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    box-shadow: 0 1px 4px rgba(143,90,255,0.04);
+    transition: background 0.2s, color 0.2s;
+    cursor: pointer;
+  }
+  #change-password-btn:hover {
+    background: #7d57c1;
+    color: #fff;
+  }
+  
+  #delete-account-btn {
+    margin: 6px 0 0 0;
+    padding: 9px 0;
+    width: 100%;
+    background: linear-gradient(90deg, #ff4a4a, #e74c3c);
+    color: #fff;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.04em;
+    box-shadow: 0 2px 6px rgba(255,80,80,0.09);
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  #delete-account-btn:hover {
+    background: linear-gradient(90deg, #e74c3c, #ff6c6c);
+  }
+  
+  .auralance-btn {
+    margin: 16px 0 0 0;
+    padding: 12px 0;
+    width: 100%;
+    background: linear-gradient(90deg, #7d57c1 60%, #3bd67a 100%);
+    color: #fff;
+    font-size: 1.07em;
+    font-weight: 700;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 9px rgba(85, 220, 130, 0.08);
+    cursor: pointer;
+    transition: background 0.18s, color 0.15s;
+  }
+  .auralance-btn:hover {
+    background: linear-gradient(90deg, #3bd67a 30%, #7d57c1 100%);
+    color: #fff;
+  }
+  
+  .settings-message {
+    margin-top: 22px;
+    font-size: 1.07em;
+    font-weight: 600;
+    min-height: 30px;
+  }
+  .settings-message.success { color: #37b551; }
+  .settings-message.error { color: #ff4051; }
+  

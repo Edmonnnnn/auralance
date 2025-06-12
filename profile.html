@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Profile – Auralance</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/profile.css">
+</head>
+<body>
+  <header class="header">
+    <div class="logo-block">
+      <span class="logo-aura"></span>
+      <span class="logo-text"><b>Auralance</b></span>
+    </div>
+    <nav class="menu">
+      <a href="index.html">Home</a>
+      <a href="find-work.html">Find work</a>
+      <a href="favorites.html">Favorites</a>
+      <a href="history.html">History</a>
+      <a href="subscription.html">Subscribe</a>
+      <a href="settings.html">Settings</a>
+      <a class="active" href="profile.html">Profile</a>
+      <a href="login.html">Log In</a>
+      <a href="signup.html">Sign Up</a>
+    </nav>
+  </header>
+  <section class="profile-section">
+    <div class="profile-card">
+      <div class="profile-avatar-block">
+        <div class="profile-avatar" id="profile-avatar">
+          <!-- Сюда можно подгружать фото, если захочешь добавить upload -->
+          <span>👤</span>
+        </div>
+        <div class="profile-status-badge" id="profile-status">Freelancer</div>
+      </div>
+      <form class="profile-form" id="profile-form">
+        <div class="profile-fields-row">
+          <div class="profile-field">
+            <label>First Name</label>
+            <input type="text" id="profile-firstname" required>
+          </div>
+          <div class="profile-field">
+            <label>Last Name</label>
+            <input type="text" id="profile-lastname" required>
+          </div>
+        </div>
+        <div class="profile-field">
+          <label>Email</label>
+          <input type="email" id="profile-email" readonly>
+        </div>
+        <div class="profile-field">
+          <label>Date Joined</label>
+          <input type="text" id="profile-date-joined" readonly>
+        </div>
+        <div class="profile-field">
+          <label>Role</label>
+          <select id="profile-role">
+            <option value="Freelancer">Freelancer</option>
+            <option value="Client">Client</option>
+          </select>
+        </div>
+        <div class="profile-field">
+          <label>Bio</label>
+          <textarea id="profile-bio" maxlength="250" rows="2" placeholder="Write something about yourself..."></textarea>
+        </div>
+        <div class="profile-field">
+          <label>Skills</label>
+          <input type="text" id="profile-skills" placeholder="Comma-separated, e.g. Python,JS,Design">
+          <div id="skills-list" class="skills-list"></div>
+        </div>
+        <div class="profile-field">
+          <label>Telegram</label>
+          <input type="text" id="profile-telegram" placeholder="@yourusername">
+        </div>
+        <div class="profile-field">
+          <label>Last seen</label>
+          <input type="text" id="profile-lastseen" readonly>
+        </div>
+        <div class="profile-actions-row">
+          <button type="button" class="auralance-btn" id="edit-profile-btn">Edit</button>
+          <button type="submit" class="auralance-btn" id="save-profile-btn" style="display:none;">Save</button>
+        </div>
+        <div class="profile-actions-row">
+          <button type="button" class="auralance-btn logout" id="logout-btn">Log Out</button>
+          <button type="button" class="auralance-btn danger" id="delete-account-btn">Delete Account</button>
+        </div>
+        <div id="profile-message" class="profile-message"></div>
+      </form>
+    </div>
+  </section>
+  <script src="js/main.js"></script>
+  <script src="js/profile.js"></script>
+</body>
+</html>

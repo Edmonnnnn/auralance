@@ -1,0 +1,12 @@
+body {
+    margin: 0;
+    font-family: 'Inter', Arial, sans-serif;
+    background: #f6fcfe;
+    color: #222;
+  }
+  :root {
+    --accent: #2394fd;
+    --primary: #8f5aff;
+    --secondary: #32e1e6;
+  }
+  

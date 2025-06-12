@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Auralance – Subscription</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/subscription.css">
+</head>
+<body>
+  <header class="header">
+    <div class="logo-block">
+      <span class="logo-aura"></span>
+      <span class="logo-text"><b>Auralance</b></span>
+    </div>
+    <nav class="menu">
+      <a href="index.html">Home</a>
+      <a href="find-work.html">Find work</a>
+      <a href="favorites.html">Favorites</a>
+      <a href="history.html">History</a>
+      <a class="active" href="subscription.html">Subscribe</a>
+      <a href="settings.html">Settings</a>
+      <a href="profile.html">Profile</a>
+      <a href="login.html">Log In</a>
+      <a href="signup.html">Sign Up</a>
+    </nav>
+  </header>
+
+  <section class="subscription-section">
+    <h2>Subscribe to Updates</h2>
+    <form id="subscription-form" class="subscription-form">
+      <input type="email" id="email" name="email" placeholder="Enter your email..." required>
+      <input type="text" id="telegram" name="telegram" placeholder="Or Telegram username (optional)">
+      <button type="submit" class="auralance-btn">Subscribe</button>
+    </form>
+    <div id="subscription-message" class="subscription-message"></div>
+  </section>
+
+  <script src="js/main.js"></script>
+  <script src="js/subscription.js"></script>
+</body>
+</html>

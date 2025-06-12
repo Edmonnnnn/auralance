@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Auralance – Settings</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/settings.css">
+</head>
+<body>
+  <header class="header">
+    <div class="logo-block">
+      <span class="logo-aura"></span>
+      <span class="logo-text"><b>Auralance</b></span>
+    </div>
+    <nav class="menu">
+      <a href="index.html">Home</a>
+      <a href="find-work.html">Find work</a>
+      <a href="favorites.html">Favorites</a>
+      <a href="history.html">History</a>
+      <a href="subscription.html">Subscribe</a>
+      <a class="active" href="settings.html">Settings</a>
+      <a href="profile.html">Profile</a>
+      <a href="login.html">Log In</a>
+      <a href="signup.html">Sign Up</a>
+    </nav>
+  </header>
+
+  <section class="settings-section">
+    <h2>Settings</h2>
+    <form id="settings-form" class="settings-form">
+      <!-- Персональные данные -->
+      <div class="settings-block">
+        <h3>Personal Info</h3>
+        <label>Name</label>
+        <input type="text" id="settings-name" readonly>
+        <label>Email</label>
+        <input type="email" id="settings-email" readonly>
+        <button type="button" id="change-password-btn" class="auralance-btn" style="margin-top:10px;">Change Password</button>
+      </div>
+      <!-- Уведомления -->
+      <div class="settings-block">
+        <h3>Notifications</h3>
+        <label><input type="checkbox" id="settings-email-notify"> Email notifications</label>
+        <label><input type="checkbox" id="settings-tg-notify"> Telegram notifications</label>
+        <input type="text" id="settings-tg-username" placeholder="Telegram username">
+        <label><input type="checkbox" id="settings-sound-notify"> Sound notifications</label>
+      </div>
+      <!-- Язык интерфейса -->
+      <div class="settings-block">
+        <h3>Interface Language</h3>
+        <select id="interface-language">
+          <option value="en">English</option>
+          <option value="ru">Русский</option>
+        </select>
+      </div>
+      <!-- Удалить аккаунт -->
+      <div class="settings-block" style="border-top:1px solid #eee;margin-top:20px;padding-top:14px;">
+        <h3>Account Actions</h3>
+        <button type="button" id="delete-account-btn" class="auralance-btn" style="background:#e74c3c;">Delete Account</button>
+      </div>
+      <button type="submit" class="auralance-btn" style="margin-top:20px;">Save settings</button>
+    </form>
+    <div id="settings-message" class="settings-message"></div>
+  </section>
+
+  <script src="js/main.js"></script>
+  <script src="js/settings.js"></script>
+</body>
+</html>

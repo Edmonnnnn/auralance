@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Find Work – Auralance</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/filters.css">
+  <link rel="stylesheet" href="css/job-list.css">
+</head>
+<body>
+  <header class="header">
+    <div class="logo-block">
+      <span class="logo-aura"></span>
+      <span class="logo-text"><b>Auralance</b></span>
+    </div>
+    <nav class="menu">
+      <a href="index.html">Home</a>
+      <a class="active" href="find-work.html">Find work</a>
+      <a href="favorites.html">Favorites</a>
+      <a href="history.html">History</a>
+      <a href="subscription.html">Subscribe</a>
+      <a href="settings.html">Settings</a>
+      <a href="profile.html">Profile</a>
+      <a href="login.html">Log In</a>
+      <a href="signup.html">Sign Up</a>
+    </nav>
+  </header>
+
+  <div class="auralance-filters-block">
+  <div class="auralance-filters-header">
+    <span class="auralance-filters-label">Filters</span>
+    <div class="auralance-filters-divider"></div>
+  </div>
+  <form class="auralance-filters">
+    <div class="auralance-filter-wrap"><span class="filter-icon" title="Category">🎨</span>
+      <select class="auralance-filter" aria-label="Category">
+        <option value="">Category</option>
+        <option value="design">Design</option>
+        <option value="development">Development</option>
+        <option value="marketing">Marketing</option>
+        <option value="writing">Writing</option>
+        <option value="ai">AI / Automation</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+    <div class="auralance-filter-wrap"><span class="filter-icon" title="Budget">💰</span>
+      <select class="auralance-filter" aria-label="Budget">
+        <option value="">Budget</option>
+        <option value="0-100">$0–100</option>
+        <option value="100-500">$100–500</option>
+        <option value="500-1000">$500–1000</option>
+        <option value="1000+">$1000+</option>
+        <option value="custom">Custom range</option>
+      </select>
+    </div>
+    <div class="auralance-filter-wrap"><span class="filter-icon" title="Type">🛠️</span>
+      <select class="auralance-filter" aria-label="Job Type">
+        <option value="">Job Type</option>
+        <option value="fixed">Fixed Price</option>
+        <option value="hourly">Hourly</option>
+      </select>
+    </div>
+    <div class="auralance-filter-wrap"><span class="filter-icon" title="Experience">📈</span>
+      <select class="auralance-filter" aria-label="Experience">
+        <option value="">Experience</option>
+        <option value="entry">Entry</option>
+        <option value="intermediate">Intermediate</option>
+        <option value="expert">Expert</option>
+      </select>
+    </div>
+    <div class="auralance-filter-wrap"><span class="filter-icon" title="Keywords">🔎</span>
+      <input type="text" class="auralance-filter" placeholder="Keywords (e.g. python, ai)" aria-label="Keywords"/>
+    </div>
+    <button type="button" class="auralance-more-filters-btn">More filters</button>
+    <button type="submit" class="auralance-search-btn">
+      <span>🔍</span> Search
+    </button>
+  </form>
+  <!-- Advanced filters -->
+  <div class="auralance-filters-advanced" style="display:none;">
+    <div class="auralance-filter-wrap"><span class="filter-icon">⏳</span>
+      <select class="auralance-filter" aria-label="Duration">
+        <option value="">Duration</option>
+        <option value="1-3w">1–3 weeks</option>
+        <option value="1-3m">1–3 months</option>
+        <option value="3m+">3+ months</option>
+        <option value="ongoing">Ongoing</option>
+      </select>
+    </div>
+    <div class="auralance-filter-wrap"><span class="filter-icon">⚡</span>
+      <select class="auralance-filter" aria-label="Urgency">
+        <option value="">Urgency</option>
+        <option value="asap">ASAP</option>
+        <option value="week">This Week</option>
+        <option value="flexible">Flexible</option>
+      </select>
+    </div>
+    <div class="auralance-filter-wrap"><span class="filter-icon">🌍</span>
+      <select class="auralance-filter" aria-label="Location">
+        <option value="">Location</option>
+        <option value="any">Any</option>
+        <option value="europe">Europe</option>
+        <option value="usa">USA</option>
+        <option value="asia">Asia</option>
+        <option value="remote">Remote</option>
+      </select>
+    </div>
+    <div class="auralance-filter-wrap"><span class="filter-icon">💬</span>
+      <select class="auralance-filter" aria-label="Language">
+        <option value="">Language</option>
+        <option value="en">English</option>
+        <option value="ru">Russian</option>
+        <option value="fr">French</option>
+        <option value="de">German</option>
+        <option value="es">Spanish</option>
+        <option value="any">Any</option>
+      </select>
+    </div>
+    <div class="auralance-filter-wrap"><span class="filter-icon">🌐</span>
+      <select class="auralance-filter" aria-label="Platform">
+        <option value="">Platform</option>
+        <option value="upwork">Upwork</option>
+        <option value="guru">Guru</option>
+        <option value="freelancer">Freelancer</option>
+        <option value="fiverr">Fiverr</option>
+      </select>
+    </div>
+    <div class="auralance-filter-wrap"><span class="filter-icon">👤</span>
+      <select class="auralance-filter" aria-label="Client Verification">
+        <option value="">Client Verification</option>
+        <option value="verified">Verified</option>
+        <option value="unverified">Unverified</option>
+      </select>
+    </div>
+    <div class="auralance-filter-wrap"><span class="filter-icon">📩</span>
+      <select class="auralance-filter" aria-label="Proposals">
+        <option value="">Proposals</option>
+        <option value="0-5">0–5</option>
+        <option value="6-10">6–10</option>
+        <option value="10+">10+</option>
+      </select>
+    </div>
+    <div class="auralance-filter-wrap"><span class="filter-icon">💡</span>
+      <input type="text" class="auralance-filter" placeholder="Skills (comma separated)" aria-label="Skills"/>
+    </div>
+    <div class="auralance-filter-wrap"><span class="filter-icon">🛡️</span>
+      <select class="auralance-filter" aria-label="Payment Method Verified">
+        <option value="">Payment Method</option>
+        <option value="verified">Verified</option>
+        <option value="unverified">Unverified</option>
+      </select>
+    </div>
+    <div class="auralance-filter-wrap"><span class="filter-icon">🌏</span>
+      <input type="text" class="auralance-filter" placeholder="Client Country (e.g. Germany)" aria-label="Client Country"/>
+    </div>
+    <div class="auralance-filter-wrap"><span class="filter-icon">💸</span>
+      <select class="auralance-filter" aria-label="Client Spent Amount">
+        <option value="">Client Spent</option>
+        <option value="1k">&lt; $1K</option>
+        <option value="10k">$1K–10K</option>
+        <option value="10kplus">$10K+</option>
+      </select>
+    </div>
+    <div class="auralance-filter-wrap"><span class="filter-icon">⏱️</span>
+      <select class="auralance-filter" aria-label="Hours Per Week">
+        <option value="">Hours/week</option>
+        <option value="lt10">&lt;10</option>
+        <option value="10-30">10–30</option>
+        <option value="gt30">&gt;30</option>
+      </select>
+    </div>
+    <div class="auralance-filter-wrap"><span class="filter-icon">📦</span>
+      <select class="auralance-filter" aria-label="Project Size">
+        <option value="">Project Size</option>
+        <option value="small">Small</option>
+        <option value="medium">Medium</option>
+        <option value="large">Large</option>
+      </select>
+    </div>
+    <div class="auralance-filter-wrap"><span class="filter-icon">⭐</span>
+      <select class="auralance-filter" aria-label="Employer Rating">
+        <option value="">Employer Rating</option>
+        <option value="4.5up">4.5+</option>
+        <option value="4up">4+</option>
+        <option value="any">Any</option>
+      </select>
+    </div>
+    <div class="auralance-filter-wrap"><span class="filter-icon">🕑</span>
+      <select class="auralance-filter" aria-label="Posted Time">
+        <option value="">Posted Time</option>
+        <option value="1h">Last hour</option>
+        <option value="today">Today</option>
+        <option value="3d">Last 3 days</option>
+        <option value="week">Last week</option>
+      </select>
+    </div>
+    <div class="auralance-filter-wrap"><span class="filter-icon">📰</span>
+      <select class="auralance-filter" aria-label="Visibility">
+        <option value="">Visibility</option>
+        <option value="public">Public</option>
+        <option value="invite">Invite only</option>
+      </select>
+    </div>
+    <div class="auralance-filter-wrap"><span class="filter-icon">🏢</span>
+      <input type="text" class="auralance-filter" placeholder="Industry/Niche" aria-label="Industry"/>
+    </div>
+  </div>
+</div>
+
+  
+  <section class="auralance-job-list">
+    <!-- Пример одной карточки -->
+    <div class="auralance-job-card">
+      <div class="auralance-job-card-header">
+        <span class="auralance-job-title">Website Redesign</span>
+        <span class="auralance-job-platform">Upwork</span>
+      </div>
+      <div class="auralance-job-desc">
+        Redesign a corporate website for modern branding and responsiveness.
+      </div>
+      <div class="auralance-job-info">
+        <span class="auralance-job-budget">$800</span>
+        <button class="auralance-btn auralance-btn-favorite" title="Add to favorites">★</button>
+        <button class="auralance-btn auralance-btn-details">Details</button>
+      </div>
+    </div>
+    <!-- Добавь больше карточек или подгружай через JS -->
+  </section>
+  <script src="js/main.js"></script>
+  <script src="js/filters.js"></script>
+  <script src="js/job-list.js"></script>
+  <script src="js/modal.js"></script>
+</body>
+</html>

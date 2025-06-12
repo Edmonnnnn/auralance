@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Auralance – Find Your Best Freelance Aura</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/filters.css">
+  <link rel="stylesheet" href="css/job-list.css">
+  <link rel="stylesheet" href="css/recently-posted.css">
+  <link rel="stylesheet" href="css/category-section.css">
+</head>
+<body>
+  <header class="header">
+    <div class="logo-block">
+      <span class="logo-aura"></span>
+      <span class="logo-text"><b>Auralance</b></span>
+    </div>
+    <nav class="menu">
+      <a class="active" href="index.html">Home</a>
+      <a href="find-work.html">Find work</a>
+      <a href="favorites.html">Favorites</a>
+      <a href="history.html">History</a>
+      <a href="subscription.html">Subscribe</a>
+      <a href="settings.html">Settings</a>
+      <a href="profile.html">Profile</a>
+      <a href="login.html">Log In</a>
+      <a href="signup.html">Sign Up</a>
+    </nav>
+  </header>
+  
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Find Your Best<br>Freelance Aura...</h1>
+      <div class="search-box">
+        <input type="text" placeholder="search freelance work" />
+        <button class="search-btn">
+          <span>🔍</span>
+        </button>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="working-remotely.png" alt="Working remotely illustration" class="working-remotely-img" />
+    </div>
+  </section>
+
+  <div class="auralance-filters-block">
+    <div class="auralance-filters-header">
+      <span class="auralance-filters-label">Filters</span>
+      <div class="auralance-filters-divider"></div>
+    </div>
+    <form class="auralance-filters" id="search-filters-form" autocomplete="off">
+      <div class="auralance-filter-wrap">
+        <span class="filter-icon" title="Category">🎨</span>
+        <select name="category" class="auralance-filter auralance-filter-category" aria-label="Category">
+          <option value="">Category</option>
+          <option value="design">Design</option>
+          <option value="development">Development</option>
+          <option value="marketing">Marketing</option>
+          <option value="writing">Writing</option>
+          <option value="ai">AI / Automation</option>
+        </select>
+      </div>
+      <div class="auralance-filter-wrap">
+        <span class="filter-icon" title="Budget">💰</span>
+        <select name="budget" class="auralance-filter auralance-filter-budget" aria-label="Budget">
+          <option value="">Budget</option>
+          <option value="0-100">$0–100</option>
+          <option value="100-500">$100–500</option>
+          <option value="500-1000">$500–1000</option>
+          <option value="1000+">$1000+</option>
+        </select>
+      </div>
+      <div class="auralance-filter-wrap">
+        <span class="filter-icon" title="Platform">🌐</span>
+        <select name="platform" class="auralance-filter auralance-filter-platform" aria-label="Platform">
+          <option value="">Platform</option>
+          <option value="upwork">Upwork</option>
+          <option value="guru">Guru</option>
+          <option value="freelancer">Freelancer</option>
+        </select>
+      </div>
+      <div class="auralance-filter-wrap">
+        <span class="filter-icon" title="Keywords">🔎</span>
+        <input type="text" name="keywords" class="auralance-filter auralance-filter-keywords" placeholder="Keywords (e.g. python, ai)" aria-label="Keywords"/>
+      </div>
+      <button type="button" class="auralance-more-filters-btn">More filters</button>
+      <button type="submit" class="auralance-btn auralance-search-btn">
+        <span>🔍</span> Search
+      </button>
+    </form>
+    <!-- Advanced filters ВНЕ формы, внутри .auralance-filters-block -->
+    <div class="auralance-filters-advanced" style="display:none;">
+      <div class="auralance-filter-wrap">
+        <span class="filter-icon" title="Job Type">🛠️</span>
+        <select name="jobtype" class="auralance-filter auralance-filter-jobtype" aria-label="Job Type">
+          <option value="">Job Type</option>
+          <option value="fixed">Fixed Price</option>
+          <option value="hourly">Hourly</option>
+        </select>
+      </div>
+      <div class="auralance-filter-wrap">
+        <span class="filter-icon" title="Experience">📈</span>
+        <select name="experience" class="auralance-filter auralance-filter-experience" aria-label="Experience">
+          <option value="">Experience Level</option>
+          <option value="entry">Entry</option>
+          <option value="intermediate">Intermediate</option>
+          <option value="expert">Expert</option>
+        </select>
+      </div>
+      <div class="auralance-filter-wrap">
+        <span class="filter-icon" title="Duration">⏳</span>
+        <select name="duration" class="auralance-filter auralance-filter-duration" aria-label="Duration">
+          <option value="">Duration</option>
+          <option value="1-3w">1–3 weeks</option>
+          <option value="1-3m">1–3 months</option>
+          <option value="3m+">3+ months</option>
+          <option value="ongoing">Ongoing</option>
+        </select>
+      </div>
+      <div class="auralance-filter-wrap">
+        <span class="filter-icon" title="Urgency">⚡</span>
+        <select name="urgency" class="auralance-filter auralance-filter-urgency" aria-label="Urgency">
+          <option value="">Urgency</option>
+          <option value="asap">ASAP</option>
+          <option value="week">This Week</option>
+          <option value="flexible">Flexible</option>
+        </select>
+      </div>
+      <div class="auralance-filter-wrap">
+        <span class="filter-icon" title="Location">🌍</span>
+        <select name="location" class="auralance-filter auralance-filter-location" aria-label="Location">
+          <option value="">Location</option>
+          <option value="any">Any</option>
+          <option value="europe">Europe</option>
+          <option value="usa">USA</option>
+          <option value="asia">Asia</option>
+          <option value="remote">Remote</option>
+        </select>
+      </div>
+      <div class="auralance-filter-wrap">
+        <span class="filter-icon" title="Language">💬</span>
+        <select name="language" class="auralance-filter auralance-filter-language" aria-label="Language">
+          <option value="">Language</option>
+          <option value="en">English</option>
+          <option value="ru">Russian</option>
+          <option value="any">Any</option>
+        </select>
+      </div>
+      <div class="auralance-filter-wrap">
+        <span class="filter-icon" title="Client">👤</span>
+        <select name="client" class="auralance-filter auralance-filter-client" aria-label="Client Verification">
+          <option value="">Client Verification</option>
+          <option value="verified">Verified</option>
+          <option value="unverified">Unverified</option>
+        </select>
+      </div>
+      <div class="auralance-filter-wrap">
+        <span class="filter-icon" title="Proposals">📩</span>
+        <select name="proposals" class="auralance-filter auralance-filter-proposals" aria-label="Proposals">
+          <option value="">Proposals</option>
+          <option value="0-5">0–5</option>
+          <option value="6-10">6–10</option>
+          <option value="10+">10+</option>
+        </select>
+      </div>
+      <div class="auralance-filter-wrap">
+        <span class="filter-icon" title="Skills">💡</span>
+        <input type="text" name="skills" class="auralance-filter auralance-filter-skills" placeholder="Skills (comma separated)" aria-label="Skills"/>
+      </div>
+    </div>
+  </div>
+  
+  
+  <section class="auralance-job-list">
+    <!-- Пример одной карточки -->
+    <div class="auralance-job-card">
+      <div class="auralance-job-card-header">
+        <span class="auralance-job-title">Create logo for NFT project</span>
+        <span class="auralance-job-platform">Upwork</span>
+      </div>
+      <div class="auralance-job-desc">
+        Need a modern logo for our new NFT collection. Please show portfolio.
+      </div>
+      <div class="auralance-job-info">
+        <span class="auralance-job-budget">$350</span>
+        <button class="auralance-btn auralance-btn-favorite" title="Add to favorites">★</button>
+        <button class="auralance-btn auralance-btn-details">Details</button>
+      </div>
+    </div>
+    <!-- Ещё карточки -->
+    <div class="auralance-job-card">
+      <div class="auralance-job-card-header">
+        <span class="auralance-job-title">SEO optimization for shop site</span>
+        <span class="auralance-job-platform">Guru</span>
+      </div>
+      <div class="auralance-job-desc">
+        Looking for SEO specialist to boost Google ranking. Ongoing contract.
+      </div>
+      <div class="auralance-job-info">
+        <span class="auralance-job-budget">$220</span>
+        <button class="auralance-btn auralance-btn-favorite" title="Add to favorites">★</button>
+        <button class="auralance-btn auralance-btn-details">Details</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recently Posted Works -->
+  <section class="recent-section">
+    <div class="recent-header">
+      <div>
+        <span class="subtitle">The latest freelance work!</span>
+        <h2>Recently Posted <span class="accent">Works</span></h2>
+      </div>
+      <div class="arrows">
+        <button class="arrow-btn">&larr;</button>
+        <button class="arrow-btn">&rarr;</button>
+      </div>
+    </div>
+    <div class="jobs-cards">
+      <div class="job-card">
+        <div class="job-icon job-icon-1"></div>
+        <h3>Logo Design</h3>
+        <div class="job-desc">Need a professional logo with writing underneath for our jewellery company</div>
+        <div class="job-footer">
+          <span>Highest bid<br><b>$500</b></span>
+          <a href="#" class="apply-link">Apply now</a>
+        </div>
+      </div>
+      <div class="job-card">
+        <div class="job-icon job-icon-2"></div>
+        <h3>Graphic Design</h3>
+        <div class="job-desc">We need a graphic designer with UI/UX skills for our Furniture company</div>
+        <div class="job-footer">
+          <span>Highest bid<br><b>$500</b></span>
+          <a href="#" class="apply-link">Apply now</a>
+        </div>
+      </div>
+      <div class="job-card">
+        <div class="job-icon job-icon-3"></div>
+        <h3>Need a SEO</h3>
+        <div class="job-desc">Need a SEO for our company who will let our company to a higher level</div>
+        <div class="job-footer">
+          <span>Highest bid<br><b>$300</b></span>
+          <a href="#" class="apply-link">Apply now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Category Section -->
+  <section class="category-section">
+    <h2>Choose Different <span class="accent">Category</span></h2>
+    <div class="category-grid">
+      <div class="category-item" style="background-image:url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80')">Graphic&amp;Design</div>
+      <div class="category-item" style="background-image:url('https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80')">Cartoon Animation</div>
+      <div class="category-item" style="background-image:url('https://images.unsplash.com/photo-1454023492550-5696f8ff10e1?auto=format&fit=crop&w=400&q=80')">Illustration</div>
+      <div class="category-item" style="background-image:url('https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80')">Flyers &amp; Vouchers</div>
+    </div>
+  </section>
+  
+  <script src="js/main.js"></script>
+  <script src="js/filters.js"></script>
+  <script src="js/job-list.js"></script>
+  <script src="js/modal.js"></script>
+</body>
+</html>

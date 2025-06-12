@@ -1,0 +1,83 @@
+.recent-section {
+    width: 95%;
+    max-width: 1180px;
+    margin: 54px auto 0 auto;
+}
+.recent-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+.recent-section h2 {
+    font-size: 2em;
+    margin: 2px 0 0 0;
+    font-weight: 800;
+}
+.arrows .arrow-btn {
+    border: none;
+    background: #f6fcfe;
+    color: #2394fd;
+    font-size: 1.5em;
+    border-radius: 50%;
+    width: 38px; height: 38px;
+    margin-left: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.arrows .arrow-btn:hover {
+    background: #e2f0fd;
+}
+.jobs-cards {
+    display: flex;
+    gap: 24px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+}
+.job-card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 2px 12px rgba(143,90,255,0.06);
+    padding: 28px 24px;
+    flex: 1 1 240px;
+    max-width: 300px;
+    min-width: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 12px;
+}
+.job-icon {
+    width: 44px; height: 44px; border-radius: 16px; margin-bottom: 16px;
+    background: #f6fcfe;
+    display: flex; align-items: center; justify-content: center;
+}
+.job-icon-1 { background: #e7e8fd url('https://cdn-icons-png.flaticon.com/512/1828/1828884.png') center/60% no-repeat; }
+.job-icon-2 { background: #e4f4f8 url('https://cdn-icons-png.flaticon.com/512/3135/3135715.png') center/60% no-repeat; }
+.job-icon-3 { background: #e9f5e7 url('https://cdn-icons-png.flaticon.com/512/1828/1828911.png') center/60% no-repeat; }
+.job-card h3 {
+    font-size: 1.19em;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+}
+.job-desc {
+    color: #5d5d5d;
+    margin-bottom: 22px;
+    font-size: 1em;
+}
+.job-footer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: flex-end;
+}
+.apply-link {
+    color: #2394fd;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1em;
+    margin-left: 22px;
+}
+.apply-link:hover {
+    text-decoration: underline;
+}

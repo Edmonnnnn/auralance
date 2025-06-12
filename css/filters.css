@@ -1,0 +1,478 @@
+.auralance-filters-block {
+    background: rgba(62, 48, 105, 0.16);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    max-width: 820px;
+    margin: 0 auto 28px auto;
+    border-radius: 20px;
+    box-shadow: 0 4px 32px rgba(80, 38, 151, 0.14), 0 1.5px 7px rgba(50,30,90,0.08);
+    border: 1.5px solid rgba(79,54,141,0.22);
+    padding: 28px 32px 24px 32px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.auralance-filters-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 13px;
+}
+.auralance-filters-label {
+    font-size: 1.16em;
+    font-weight: 700;
+    color: #7d57c1;
+    letter-spacing: 0.7px;
+    margin-right: 14px;
+}
+.auralance-filters-divider {
+    flex: 1 1 0;
+    height: 2.3px;
+    background: linear-gradient(90deg, #8f5aff 15%, #32e1e6 100%);
+    border-radius: 2px;
+    opacity: 0.23;
+}
+.auralance-filters {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin: 10px 0 0 0;
+    align-items: center;
+    background: #f7f8fc;
+    border-radius: 14px;
+    padding: 18px 18px 10px 18px;
+    box-shadow: 0 2px 14px rgba(143, 90, 255, 0.04);
+    position: relative;
+}
+.auralance-filter {
+    padding: 10px 18px;
+    border: 1.5px solid #e2e6ea;
+    border-radius: 10px;
+    background: #fff;
+    font-size: 1em;
+    color: #222;
+    min-width: 140px;
+    max-width: 220px;
+    box-shadow: 0 1px 3px 0 rgba(143,90,255,0.04);
+    transition: border .2s, box-shadow .2s;
+    outline: none;
+}
+.auralance-filter:focus {
+    border-color: #8f5aff;
+    box-shadow: 0 0 0 2px #f4e8ff;
+}
+.auralance-filter-keywords,
+.auralance-filter-skills {
+    min-width: 190px;
+    max-width: 320px;
+}
+.auralance-more-filters-btn {
+    background: linear-gradient(90deg, #8f5aff 0%, #32e1e6 100%);
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    border-radius: 11px;
+    padding: 10px 28px;
+    cursor: pointer;
+    font-size: 1em;
+    box-shadow: 0 2px 14px 0 rgba(143,90,255,0.10);
+    transition: background 0.2s, transform 0.14s;
+    margin-left: 8px;
+}
+.auralance-more-filters-btn:hover {
+    background: linear-gradient(90deg, #32e1e6 0%, #8f5aff 100%);
+    transform: translateY(-2px) scale(1.04);
+}
+
+/* Advanced filters: анимация и плавное появление/скрытие */
+.auralance-filters-advanced {
+    display: none;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 12px;
+    width: 100%;
+    background: rgba(62, 48, 105, 0.19); /* более темный */
+    border-radius: 16px;
+    padding: 18px 10px 12px 10px;
+    box-shadow: 0 2px 22px 0 rgba(80, 38, 151, 0.11);
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.32s cubic-bezier(.4,2,.6,1), opacity 0.24s;
+}
+
+.auralance-filters-advanced.active {
+    display: flex !important;
+    max-height: 600px;
+    opacity: 1;
+    animation: fadeIn 0.4s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px);}
+    to { opacity: 1; transform: none;}
+}
+
+@media (max-width: 1200px) {
+    .auralance-filters-block { max-width: 98vw; padding: 16px 2vw 12px 2vw;}
+}
+@media (max-width: 900px) {
+    .auralance-filters {
+        flex-direction: column;
+        gap: 12px;
+        padding: 14px 7px;
+        align-items: stretch;
+    }
+    .auralance-filters-advanced {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 0 8px 0;
+        max-height: 1200px;
+    }
+    .auralance-filter, .auralance-filter-keywords, .auralance-filter-skills {
+        width: 100%;
+        min-width: unset;
+        max-width: unset;
+    }
+}
+
+
+
+
+
+
+
+/* Общий стиль для select/input */
+.auralance-filter {
+    padding: 13px 20px;
+    border: none;
+    border-radius: 15px;
+    background: #f5f4fd;
+    font-size: 1.08em;
+    color: #4e3f7d;
+    min-width: 160px;
+    max-width: 280px;
+    box-shadow: 0 2.5px 16px 0 rgba(140, 95, 255, 0.08);
+    outline: none;
+    transition: box-shadow 0.22s, background 0.22s, color 0.14s;
+    margin-bottom: 6px;
+    border-bottom: 2px solid transparent;
+}
+
+.auralance-filter:focus, .auralance-filter:hover {
+    background: #edeafd;
+    box-shadow: 0 4px 24px 0 rgba(140, 95, 255, 0.15);
+    color: #673ab7;
+    border-bottom: 2px solid #8f5aff;
+}
+
+.auralance-filters {
+    background: rgba(245, 244, 253, 0.97);
+    box-shadow: 0 2px 14px 0 rgba(143,90,255,0.07);
+    border-radius: 18px;
+    padding: 22px 18px 16px 18px;
+    gap: 22px;
+    margin-bottom: 0;
+}
+
+.auralance-more-filters-btn {
+    font-size: 1.1em;
+    border-radius: 13px;
+    padding: 13px 32px;
+    letter-spacing: 0.6px;
+}
+
+.auralance-filters-advanced {
+    background: rgba(51, 33, 90, 0.20);
+    border-radius: 17px;
+    padding: 18px 10px 12px 10px;
+    box-shadow: 0 2px 22px 0 rgba(80, 38, 151, 0.14);
+    margin-top: 14px;
+    gap: 18px;
+}
+
+/* Animation для плавного появления advanced-фильтров */
+.auralance-filters-advanced .auralance-filter {
+    opacity: 0;
+    transform: translateY(16px);
+    animation: advFadeIn 0.45s cubic-bezier(.23,1.25,.48,.98) forwards;
+}
+.auralance-filters-advanced.active .auralance-filter {
+    opacity: 1;
+    transform: none;
+}
+.auralance-filters-advanced .auralance-filter:nth-child(1) { animation-delay: .05s;}
+.auralance-filters-advanced .auralance-filter:nth-child(2) { animation-delay: .11s;}
+.auralance-filters-advanced .auralance-filter:nth-child(3) { animation-delay: .17s;}
+.auralance-filters-advanced .auralance-filter:nth-child(4) { animation-delay: .23s;}
+.auralance-filters-advanced .auralance-filter:nth-child(5) { animation-delay: .29s;}
+.auralance-filters-advanced .auralance-filter:nth-child(6) { animation-delay: .35s;}
+.auralance-filters-advanced .auralance-filter:nth-child(7) { animation-delay: .41s;}
+.auralance-filters-advanced .auralance-filter:nth-child(8) { animation-delay: .47s;}
+.auralance-filters-advanced .auralance-filter:nth-child(9) { animation-delay: .53s;}
+@keyframes advFadeIn {
+    from { opacity: 0; transform: translateY(26px);}
+    to   { opacity: 1; transform: none;}
+}
+
+/* Для мобильных: по центру и по ширине */
+@media (max-width: 900px) {
+    .auralance-filters, .auralance-filters-advanced {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 14px;
+        padding: 13px 2vw 12px 2vw;
+    }
+    .auralance-filter {
+        width: 100%;
+        min-width: unset;
+        max-width: unset;
+        margin-bottom: 6px;
+    }
+}
+
+
+
+
+
+
+
+
+.auralance-filter-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+    width: 100%;
+    max-width: 290px;
+    min-width: 160px;
+  }
+  
+  .filter-icon {
+    font-size: 1.35em;
+    margin-right: 10px;
+    color: #7d57c1;
+    opacity: 0.95;
+    transition: color .22s;
+    user-select: none;
+    pointer-events: none;
+  }
+  
+  .auralance-filter {
+    flex: 1 1 0;
+    width: 100%;
+    padding-left: 36px; /* чтобы не перекрывалась иконка */
+    background: #f5f4fd;
+    border-radius: 14px;
+    border: none;
+    outline: none;
+    color: #4e3f7d;
+    font-size: 1.09em;
+    box-shadow: 0 1.5px 8px 0 rgba(140, 95, 255, 0.09);
+    transition: box-shadow 0.22s, background 0.22s, color 0.14s, border .13s;
+    border-bottom: 2px solid transparent;
+    margin-bottom: 0;
+  }
+  .auralance-filter:focus, .auralance-filter:hover {
+    background: #edeafd;
+    box-shadow: 0 4px 22px 0 rgba(140, 95, 255, 0.14);
+    border-bottom: 2px solid #8f5aff;
+  }
+  .auralance-filter::placeholder {
+    color: #ab9fd1;
+    font-weight: 400;
+    opacity: .85;
+  }
+  
+  .auralance-more-filters-btn {
+    margin-left: 18px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    font-size: 1.15em;
+    border-radius: 14px;
+    padding: 0 34px;
+  }
+  
+  .auralance-filters, .auralance-filters-advanced {
+    gap: 18px 26px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .auralance-filters-advanced {
+    background: rgba(62, 48, 105, 0.13);
+    border-radius: 15px;
+    padding: 18px 8px 12px 8px;
+    box-shadow: 0 2px 22px 0 rgba(80, 38, 151, 0.13);
+  }
+  
+  @media (max-width: 900px) {
+    .auralance-filters,
+    .auralance-filters-advanced {
+      flex-direction: column;
+      gap: 14px 0;
+      padding: 10px 2vw 8px 2vw;
+      align-items: stretch;
+    }
+    .auralance-filter-wrap {
+      width: 100%;
+      max-width: unset;
+      min-width: unset;
+    }
+  }
+
+  
+
+
+
+  .auralance-filter-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+    width: 100%;
+    max-width: 290px;
+    min-width: 160px;
+  }
+  
+  .filter-icon {
+    font-size: 1.35em;
+    margin-right: 10px;
+    color: #7d57c1;
+    opacity: 0.95;
+    transition: color .22s;
+    user-select: none;
+    pointer-events: none;
+  }
+  
+  .auralance-filter {
+    flex: 1 1 0;
+    width: 100%;
+    padding-left: 36px; /* чтобы не перекрывалась иконка */
+    background: #f5f4fd;
+    border-radius: 14px;
+    border: none;
+    outline: none;
+    color: #4e3f7d;
+    font-size: 1.09em;
+    box-shadow: 0 1.5px 8px 0 rgba(140, 95, 255, 0.09);
+    transition: box-shadow 0.22s, background 0.22s, color 0.14s, border .13s;
+    border-bottom: 2px solid transparent;
+    margin-bottom: 0;
+  }
+  .auralance-filter:focus, .auralance-filter:hover {
+    background: #edeafd;
+    box-shadow: 0 4px 22px 0 rgba(140, 95, 255, 0.14);
+    border-bottom: 2px solid #8f5aff;
+  }
+  .auralance-filter::placeholder {
+    color: #ab9fd1;
+    font-weight: 400;
+    opacity: .85;
+  }
+  
+  .auralance-more-filters-btn {
+    margin-left: 18px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    font-size: 1.15em;
+    border-radius: 14px;
+    padding: 0 34px;
+  }
+  
+  .auralance-filters, .auralance-filters-advanced {
+    gap: 18px 26px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .auralance-filters-advanced {
+    background: rgba(62, 48, 105, 0.13);
+    border-radius: 15px;
+    padding: 18px 8px 12px 8px;
+    box-shadow: 0 2px 22px 0 rgba(80, 38, 151, 0.13);
+  }
+  
+  @media (max-width: 900px) {
+    .auralance-filters,
+    .auralance-filters-advanced {
+      flex-direction: column;
+      gap: 14px 0;
+      padding: 10px 2vw 8px 2vw;
+      align-items: stretch;
+    }
+    .auralance-filter-wrap {
+      width: 100%;
+      max-width: unset;
+      min-width: unset;
+    }
+  }
+
+  
+
+
+
+
+  .auralance-filter-wrap {
+    display: flex;
+    align-items: center;
+    background: rgba(255,255,255,0.81);
+    border-radius: 10px;
+    box-shadow: 0 2px 8px 0 rgba(143,90,255,0.05);
+    padding: 0 9px 0 9px;
+    margin-bottom: 8px;
+    margin-right: 8px;
+    gap: 8px;
+  }
+  
+  .filter-icon {
+    font-size: 1.32em;
+    opacity: 0.86;
+    margin-right: 6px;
+  }
+  
+  .auralance-filter {
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #4d3577;
+    min-width: 110px;
+    max-width: 220px;
+    padding: 10px 7px;
+    border-radius: 7px;
+  }
+  
+  .auralance-filter:focus {
+    background: #f7f4ff;
+    box-shadow: 0 0 0 2px #b99fff2b;
+  }
+  
+  .auralance-search-btn {
+    background: linear-gradient(90deg, #7d57c1 0%, #32e1e6 100%);
+    color: #fff;
+    font-weight: 700;
+    border: none;
+    border-radius: 13px;
+    padding: 12px 38px;
+    font-size: 1.13em;
+    box-shadow: 0 3px 16px 0 rgba(143,90,255,0.13);
+    margin-left: 18px;
+    transition: background 0.2s, transform 0.16s;
+    cursor: pointer;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+  .auralance-search-btn:hover {
+    background: linear-gradient(90deg, #32e1e6 0%, #7d57c1 100%);
+    transform: translateY(-1px) scale(1.04);
+  }
+  

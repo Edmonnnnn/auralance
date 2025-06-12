@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Sign Up – Auralance</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+  <header class="header">
+    <div class="logo-block">
+      <span class="logo-aura"></span>
+      <span class="logo-text"><b>Auralance</b></span>
+    </div>
+    <nav class="menu">
+      <a href="index.html">Home</a>
+      <a href="find-work.html">Find work</a>
+      <a href="favorites.html">Favorites</a>
+      <a href="history.html">History</a>
+      <a href="subscription.html">Subscribe</a>
+      <a href="settings.html">Settings</a>
+      <a href="profile.html">Profile</a>
+      <a href="login.html">Log In</a>
+      <a class="active" href="signup.html">Sign Up</a>
+    </nav>
+  </header>
+
+  <div class="login-bg-glow"></div>
+  <div class="login-container glass-fadein">
+    <h2>Sign Up</h2>
+    <form id="signup-form" autocomplete="off">
+      <div class="input-group">
+        <input type="text" id="signup-name" placeholder="Full Name" required autocomplete="name">
+      </div>
+      <div class="input-group">
+        <input type="email" id="signup-email" placeholder="Email" required autocomplete="username">
+      </div>
+      <div class="input-group">
+        <input type="password" id="signup-password" placeholder="Password" required autocomplete="new-password" minlength="6">
+      </div>
+      <button type="submit" class="auralance-btn login-btn">Sign Up</button>
+    </form>
+    <div id="signup-message" class="login-message"></div>
+    <div class="login-footer">
+      <span>Already have an account?</span>
+      <a href="login.html">Log In</a>
+    </div>
+  </div>
+  <script src="js/main.js"></script>
+  <script src="js/signup.js"></script>
+</body>
+</html>

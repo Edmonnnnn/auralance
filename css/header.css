@@ -1,0 +1,41 @@
+.header {
+    width: 92%;
+    max-width: 1200px;
+    margin: 28px auto 0 auto;
+    background: #fff;
+    border-radius: 30px;
+    padding: 18px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 16px rgba(143, 90, 255, 0.08);
+}
+.logo-block {
+    display: flex;
+    align-items: center;
+}
+.logo-aura {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: radial-gradient(circle, #8f5aff 0%, #32e1e6 100%);
+    box-shadow: 0 0 8px #8f5aff44;
+    margin-right: 10px;
+    display: inline-block;
+}
+.logo-text {
+    font-size: 1.4em;
+    letter-spacing: 1px;
+}
+.menu a {
+    margin: 0 16px;
+    color: #232323;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.07em;
+    transition: color 0.2s;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 2px;
+}
+.menu a.active, .menu a:hover {
+    color: #8f5aff;
+    border-bottom: 2px solid #8f5aff;
+}

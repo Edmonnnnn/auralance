@@ -1,0 +1,103 @@
+.auralance-job-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    margin: 0 auto 60px auto;
+    max-width: 1050px;
+    justify-content: flex-start;
+}
+.auralance-job-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(143,90,255,0.08);
+    padding: 24px 20px 16px 20px;
+    min-width: 260px;
+    max-width: 330px;
+    width: 100%;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+.auralance-job-card:hover {
+    box-shadow: 0 10px 36px 0 rgba(143,90,255,0.18);
+    transform: translateY(-2px) scale(1.012);
+}
+.auralance-job-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+}
+.auralance-job-title {
+    font-size: 1.13em;
+    font-weight: 700;
+    color: #23223a;
+    flex: 1;
+    margin-right: 8px;
+    line-height: 1.2;
+}
+.auralance-job-platform {
+    font-size: 0.97em;
+    background: #32e1e622;
+    color: #32e1e6;
+    border-radius: 7px;
+    padding: 4px 11px;
+    font-weight: 600;
+    margin-left: 8px;
+}
+.auralance-job-desc {
+    color: #4c4c59;
+    margin: 13px 0 22px 0;
+    font-size: 0.97em;
+    min-height: 40px;
+}
+.auralance-job-info {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+.auralance-job-budget {
+    font-size: 1.05em;
+    color: #8f5aff;
+    font-weight: 700;
+    margin-right: 10px;
+}
+.auralance-btn {
+    border: none;
+    background: linear-gradient(90deg, #8f5aff 0%, #32e1e6 100%);
+    color: #fff;
+    border-radius: 9px;
+    padding: 7px 20px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    margin-right: 7px;
+    transition: background 0.18s, box-shadow 0.17s, transform 0.11s;
+    box-shadow: 0 2px 8px 0 rgba(143,90,255,0.07);
+}
+.auralance-btn-favorite {
+    width: 38px;
+    padding: 0;
+    font-size: 1.3em;
+    background: #fff8fa;
+    color: #8f5aff;
+    border: 1.3px solid #f0e9ff;
+    box-shadow: none;
+    margin-right: 5px;
+    transition: background 0.15s, color 0.15s;
+}
+.auralance-btn-favorite:hover {
+    background: #f0e9ff;
+    color: #32e1e6;
+}
+.auralance-btn-details:hover {
+    background: linear-gradient(90deg, #32e1e6 0%, #8f5aff 100%);
+    transform: scale(1.055);
+}
+@media (max-width: 900px) {
+    .auralance-job-list {
+      flex-direction: column;
+      gap: 18px;
+      align-items: center;
+    }
+    .auralance-job-card { max-width: 98vw; }
+}

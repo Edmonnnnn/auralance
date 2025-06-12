@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Favorites – Auralance</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/favorites.css">
+</head>
+<body>
+  <header class="header">
+    <div class="logo-block">
+      <span class="logo-aura"></span>
+      <span class="logo-text"><b>Auralance</b></span>
+    </div>
+    <nav class="menu">
+      <a href="index.html">Home</a>
+      <a href="find-work.html">Find work</a>
+      <a class="active" href="favorites.html">Favorites</a>
+      <a href="history.html">History</a>
+      <a href="subscription.html">Subscribe</a>
+      <a href="settings.html">Settings</a>
+      <a href="profile.html">Profile</a>
+      <a href="login.html">Log In</a>
+      <a href="signup.html">Sign Up</a>
+    </nav>
+  </header>
+
+  <section class="favorites-section">
+    <h2>Your <span class="accent">Favorites</span></h2>
+    <div class="favorites-list">
+      <!-- Пример карточки -->
+      <div class="favorite-card">
+        <div class="favorite-card-header">
+          <span class="favorite-title">Create logo for NFT project</span>
+          <span class="favorite-platform">Upwork</span>
+          <button class="remove-favorite-btn" title="Remove from favorites">✖</button>
+        </div>
+        <div class="favorite-desc">
+          Need a modern logo for our new NFT collection. Please show portfolio.
+        </div>
+        <div class="favorite-info">
+          <span class="favorite-budget">$350</span>
+          <button class="details-btn">Details</button>
+        </div>
+      </div>
+      <!-- ... Добавь больше заказов, если нужно ... -->
+      <!-- Если нет избранных -->
+      <!-- <div class="favorites-empty">No favorites yet. Add jobs to favorites!</div> -->
+    </div>
+  </section>
+
+  <script src="js/main.js"></script>
+  <script src="js/favorites.js"></script>
+</body>
+</html>
