@@ -46,35 +46,9 @@
       <a href="signup.html">Sign Up</a>
     </div>
   </div>
+
+  <!-- Подключение скриптов -->
   <script src="js/main.js"></script>
-  <script>
-    // Пример логики авторизации через localStorage (замени на свою при необходимости)
-    document.getElementById('login-form').onsubmit = function(e) {
-      e.preventDefault();
-      const email = document.getElementById('login-email').value.trim();
-      const password = document.getElementById('login-password').value.trim();
-      if (!email || !password) {
-        showMsg('Please fill all fields', 'error');
-        return;
-      }
-      // Простейшая валидация (можно заменить на реальную)
-      let user = JSON.parse(localStorage.getItem('user') || '{}');
-      if (user.email === email && user.password === password) {
-        showMsg('Welcome!', 'success');
-        setTimeout(() => window.location.href = 'profile.html', 700);
-      } else if (!user.email) {
-        showMsg('User not found. Please sign up.', 'error');
-      } else {
-        showMsg('Invalid credentials', 'error');
-      }
-    }
-    function showMsg(msg, type) {
-      const m = document.getElementById('login-message');
-      m.textContent = msg;
-      m.className = 'login-message ' + (type || '');
-      if (type === 'success') m.style.color = '#3bd67a';
-      else m.style.color = '#e74c3c';
-    }
-  </script>
+  <script src="js/login.js" defer></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-// login.js
+// js/login.js
 
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('login-form');
@@ -6,31 +6,45 @@ document.addEventListener('DOMContentLoaded', () => {
     const passwordInput = document.getElementById('login-password');
     const msg = document.getElementById('login-message');
   
-    form.onsubmit = function(e) {
+    form.onsubmit = async function (e) {
       e.preventDefault();
       const email = emailInput.value.trim();
       const password = passwordInput.value.trim();
+  
       if (!email || !password) {
-        showMsg('Please fill all fields', 'error');
+        showMsg('Please enter email and password', 'error');
         return;
       }
-      // Попробуем найти пользователя (user хранится в localStorage)
-      let user = JSON.parse(localStorage.getItem('user') || '{}');
-      if (user.email === email && user.password === password) {
-        showMsg('Welcome!', 'success');
-        setTimeout(() => window.location.href = 'profile.html', 700);
-      } else if (!user.email) {
-        showMsg('User not found. Please sign up.', 'error');
-      } else {
-        showMsg('Invalid credentials', 'error');
+  
+      try {
+        const response = await fetch('http://localhost:8000/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password })
+        });
+  
+        if (!response.ok) {
+          const err = await response.json();
+          showMsg(err.detail || 'Invalid credentials', 'error');
+          return;
+        }
+  
+        const data = await response.json();
+        localStorage.setItem('token', data.access_token);
+        localStorage.setItem('user', JSON.stringify({ email }));
+  
+        showMsg('Login successful! Redirecting...', 'success');
+        setTimeout(() => window.location.href = 'profile.html', 1000);
+      } catch (err) {
+        console.error(err);
+        showMsg('Server error. Try again later.', 'error');
       }
     };
   
-    function showMsg(txt, type) {
-      msg.textContent = txt;
+    function showMsg(text, type) {
+      msg.textContent = text;
       msg.className = 'login-message ' + (type || '');
-      if (type === 'success') msg.style.color = '#3bd67a';
-      else msg.style.color = '#e74c3c';
+      msg.style.color = type === 'success' ? '#3bd67a' : '#e74c3c';
     }
   });
   

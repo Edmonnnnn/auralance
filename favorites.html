@@ -7,9 +7,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/header.css">
-  <link rel="stylesheet" href="css/favorites.css">
+  <link rel="stylesheet" href="css/job-list.css">
+  <style>
+    .auralance-remove-btn {
+      cursor: pointer !important; /* ✅ это решает проблему */
+    }
+  </style>
 </head>
 <body>
+  <!-- 🔝 Header -->
   <header class="header">
     <div class="logo-block">
       <span class="logo-aura"></span>
@@ -28,31 +34,20 @@
     </nav>
   </header>
 
-  <section class="favorites-section">
-    <h2>Your <span class="accent">Favorites</span></h2>
-    <div class="favorites-list">
-      <!-- Пример карточки -->
-      <div class="favorite-card">
-        <div class="favorite-card-header">
-          <span class="favorite-title">Create logo for NFT project</span>
-          <span class="favorite-platform">Upwork</span>
-          <button class="remove-favorite-btn" title="Remove from favorites">✖</button>
-        </div>
-        <div class="favorite-desc">
-          Need a modern logo for our new NFT collection. Please show portfolio.
-        </div>
-        <div class="favorite-info">
-          <span class="favorite-budget">$350</span>
-          <button class="details-btn">Details</button>
-        </div>
-      </div>
-      <!-- ... Добавь больше заказов, если нужно ... -->
-      <!-- Если нет избранных -->
-      <!-- <div class="favorites-empty">No favorites yet. Add jobs to favorites!</div> -->
-    </div>
+  <!-- ⭐ Favorites Section -->
+  <section class="auralance-job-list">
+    <div id="favorites-container" class="job-list-container"></div>
   </section>
 
+  <!-- 🔧 Scripts -->
   <script src="js/main.js"></script>
   <script src="js/favorites.js"></script>
 </body>
 </html>
+
+
+<section class="favorites-section">
+    <h2>Your Favorites</h2>
+    <div id="favorites-container"></div>
+  </section>
+  

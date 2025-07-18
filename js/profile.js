@@ -1,40 +1,57 @@
 // js/profile.js
 
-// =============== 1. Проверка логина ===============
-let user = JSON.parse(localStorage.getItem('user'));
-if (!user) {
+// =============== 1. Проверка токена и загрузка пользователя ===============
+const token = localStorage.getItem('token');
+if (!token) {
   window.location.href = 'login.html';
 }
 
-// =============== 2. Работа с профилем ===============
-let profile = JSON.parse(localStorage.getItem('profile')) || {};
+fetch('http://127.0.0.1:8000/auth/me', {
+  method: 'GET',
+  headers: {
+    Authorization: `Bearer ${token}`,
+  }
+})
+  .then(response => {
+    if (!response.ok) throw new Error('Unauthorized');
+    return response.json();
+  })
+  .then(user => {
+    setupProfile(user);
+  })
+  .catch(err => {
+    console.error(err);
+    window.location.href = 'login.html';
+  });
 
-// Заполняем поля (или дефолты)
-document.getElementById('profile-firstname').value = profile.firstname || (user.name ? user.name.split(' ')[0] : '');
-document.getElementById('profile-lastname').value = profile.lastname || (user.name && user.name.split(' ')[1] ? user.name.split(' ')[1] : '');
-document.getElementById('profile-email').value = user.email || '';
-document.getElementById('profile-date-joined').value = profile.dateJoined || user.dateJoined || new Date().toISOString().split('T')[0];
-document.getElementById('profile-role').value = profile.role || 'Freelancer';
-document.getElementById('profile-bio').value = profile.bio || '';
-document.getElementById('profile-skills').value = (profile.skills || []).join(', ');
-document.getElementById('profile-telegram').value = profile.telegram || '';
-document.getElementById('profile-lastseen').value = profile.lastSeen || 'just now';
-document.getElementById('profile-status').textContent = profile.role || 'Freelancer';
+// =============== 2. Настройка профиля ===============
+function setupProfile(user) {
+  let profile = JSON.parse(localStorage.getItem('profile')) || {};
 
-// Режим "только чтение" по умолчанию
-setEditable(false);
+  document.getElementById('profile-firstname').value = profile.firstname || (user.username.split('@')[0] || '');
+  document.getElementById('profile-lastname').value = profile.lastname || '';
+  document.getElementById('profile-email').value = user.username || '';
+  document.getElementById('profile-date-joined').value = profile.dateJoined || user.dateJoined || new Date().toISOString().split('T')[0];
+  document.getElementById('profile-role').value = profile.role || 'Freelancer';
+  document.getElementById('profile-bio').value = profile.bio || '';
+  document.getElementById('profile-skills').value = (profile.skills || []).join(', ');
+  document.getElementById('profile-telegram').value = profile.telegram || '';
+  document.getElementById('profile-lastseen').value = profile.lastSeen || 'just now';
+  document.getElementById('profile-status').textContent = profile.role || 'Freelancer';
+
+  setEditable(false);
+  renderSkills();
+}
 
 // =============== 3. Редактировать/Сохранить ===============
-document.getElementById('edit-profile-btn').onclick = function() {
+document.getElementById('edit-profile-btn').onclick = function () {
   setEditable(true);
   document.getElementById('edit-profile-btn').style.display = 'none';
   document.getElementById('save-profile-btn').style.display = '';
 };
 
-document.getElementById('profile-form').onsubmit = function(e) {
+document.getElementById('profile-form').onsubmit = function (e) {
   e.preventDefault();
-
-  // Собираем и валидируем данные
   const firstname = document.getElementById('profile-firstname').value.trim();
   const lastname = document.getElementById('profile-lastname').value.trim();
   const bio = document.getElementById('profile-bio').value.trim();
@@ -42,12 +59,13 @@ document.getElementById('profile-form').onsubmit = function(e) {
   const skills = skillsRaw ? skillsRaw.split(',').map(s => s.trim()).filter(Boolean) : [];
   const telegram = document.getElementById('profile-telegram').value.trim();
   const role = document.getElementById('profile-role').value;
+
   if (!firstname || !lastname) {
     showMsg('Please enter first and last name', 'error');
     return;
   }
-  // Сохраняем профиль
-  profile = {
+
+  const profile = {
     firstname,
     lastname,
     bio,
@@ -57,6 +75,7 @@ document.getElementById('profile-form').onsubmit = function(e) {
     dateJoined: document.getElementById('profile-date-joined').value,
     lastSeen: 'just now',
   };
+
   localStorage.setItem('profile', JSON.stringify(profile));
   setEditable(false);
   document.getElementById('edit-profile-btn').style.display = '';
@@ -80,19 +99,17 @@ function renderSkills() {
   });
 }
 document.getElementById('profile-skills').addEventListener('input', renderSkills);
-renderSkills();
 
 // =============== 5. Log Out ===============
-document.getElementById('logout-btn').onclick = function() {
-  localStorage.removeItem('user');
-  // localStorage.removeItem('profile'); // Можно удалить, если нужно "чистый" выход
+document.getElementById('logout-btn').onclick = function () {
+  localStorage.removeItem('token');
   window.location.href = 'login.html';
 };
 
 // =============== 6. Delete Account ===============
-document.getElementById('delete-account-btn').onclick = function() {
+document.getElementById('delete-account-btn').onclick = function () {
   if (confirm('Delete account? This cannot be undone!')) {
-    localStorage.removeItem('user');
+    localStorage.removeItem('token');
     localStorage.removeItem('profile');
     window.location.href = 'signup.html';
   }
@@ -118,7 +135,3 @@ function showMsg(msg, type) {
   m.className = 'profile-message ' + (type || '');
   setTimeout(() => { m.textContent = ''; }, 2200);
 }
-
-// (Optional) если хочешь подставлять/фиксировать last seen — обновляй localStorage при каждом заходе на страницу
-profile.lastSeen = 'just now';
-localStorage.setItem('profile', JSON.stringify(profile));

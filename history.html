@@ -3,18 +3,66 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Auralance – Search History</title>
+  <title>History – Auralance</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/header.css">
-  <link rel="stylesheet" href="css/hero.css">
-  <link rel="stylesheet" href="css/filters.css">
-  <link rel="stylesheet" href="css/job-list.css">
-  <link rel="stylesheet" href="css/recently-posted.css">
-  <link rel="stylesheet" href="css/category-section.css">
   <link rel="stylesheet" href="css/history.css">
+  <style>
+    .history-section {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 30px;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(143,90,255,0.08);
+    }
+    .history-section h2 {
+      text-align: center;
+      font-size: 1.8em;
+      font-weight: 800;
+      margin-bottom: 25px;
+      color: #2b2b45;
+    }
+    .history-controls {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+    .history-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.97em;
+    }
+    .history-table th,
+    .history-table td {
+      padding: 12px 16px;
+      border: 1px solid #e5e5f0;
+      text-align: center;
+    }
+    .history-table thead {
+      background: #f9f8ff;
+      color: #5a5a72;
+      font-weight: 700;
+    }
+    .history-table tbody tr:hover {
+      background-color: #f3f2fe;
+      transition: background-color 0.2s ease;
+    }
+    @media (max-width: 768px) {
+      .history-table {
+        font-size: 0.9em;
+      }
+      .history-controls {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
 </head>
 <body>
+  <!-- 🔝 Header -->
   <header class="header">
     <div class="logo-block">
       <span class="logo-aura"></span>
@@ -33,12 +81,23 @@
     </nav>
   </header>
 
+  <!-- 📜 History Section -->
   <section class="history-section">
     <h2>Search History</h2>
+
     <div class="history-controls">
-      <button class="auralance-btn" onclick="repeatLastSearch()">Repeat last search</button>
-      <button class="auralance-btn" onclick="clearHistory()">Clear history</button>
-    </div>
+        <button id="repeat-last" class="auralance-btn">🔄 Repeat Last</button>
+        <button id="clear-history" class="auralance-btn">🗑️ Clear History</button>
+        
+        <!-- Новый блок -->
+        <select id="export-format" class="auralance-btn">
+          <option value="csv">CSV</option>
+          <option value="json">JSON</option>
+        </select>
+        <button id="export-btn" class="auralance-btn">💾 Export</button>
+      </div>
+      
+
     <table class="history-table">
       <thead>
         <tr>
@@ -49,23 +108,12 @@
         </tr>
       </thead>
       <tbody id="history-body">
-        <!-- История будет подгружаться сюда через js (или статично, если пока нет логики) -->
-        <tr>
-          <td>1</td>
-          <td>AI, Automation</td>
-          <td>Development</td>
-          <td>2024-06-01</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Logo Design</td>
-          <td>Design</td>
-          <td>2024-05-31</td>
-        </tr>
+        <!-- History rows will be rendered here -->
       </tbody>
     </table>
   </section>
 
+  <!-- 🔧 Scripts -->
   <script src="js/main.js"></script>
   <script src="js/history.js"></script>
 </body>

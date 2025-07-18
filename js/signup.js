@@ -1,4 +1,4 @@
-// signup.js
+// js/signup.js
 
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('signup-form');
@@ -7,11 +7,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const passwordInput = document.getElementById('signup-password');
     const msg = document.getElementById('signup-message');
   
-    form.onsubmit = function(e) {
+    form.onsubmit = async function(e) {
       e.preventDefault();
       const name = nameInput.value.trim();
       const email = emailInput.value.trim();
       const password = passwordInput.value.trim();
+  
       if (!name || !email || !password) {
         showMsg('Please fill all fields', 'error');
         return;
@@ -20,17 +21,37 @@ document.addEventListener('DOMContentLoaded', () => {
         showMsg('Password must be at least 6 characters', 'error');
         return;
       }
-      // Сохраняем пользователя в localStorage (один пользователь для демо)
-      localStorage.setItem('user', JSON.stringify({name, email, password, dateJoined: new Date().toISOString().split('T')[0]}));
-      showMsg('Account created! Redirecting...', 'success');
-      setTimeout(() => window.location.href = 'profile.html', 1200);
+  
+      try {
+        const response = await fetch('http://localhost:8000/auth/signup', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password })
+        });
+  
+        if (!response.ok) {
+          const err = await response.json();
+          showMsg(err.detail || 'Registration failed', 'error');
+          return;
+        }
+  
+        const data = await response.json();
+        localStorage.setItem('token', data.access_token);
+        localStorage.setItem('user', JSON.stringify({ name, email, dateJoined: new Date().toISOString().split('T')[0] }));
+        showMsg('Account created! Redirecting...', 'success');
+  
+        setTimeout(() => window.location.href = 'profile.html', 1200);
+  
+      } catch (err) {
+        console.error(err);
+        showMsg('Server error. Try again later.', 'error');
+      }
     };
   
     function showMsg(txt, type) {
       msg.textContent = txt;
       msg.className = 'login-message ' + (type || '');
-      if (type === 'success') msg.style.color = '#3bd67a';
-      else msg.style.color = '#e74c3c';
+      msg.style.color = type === 'success' ? '#3bd67a' : '#e74c3c';
     }
   });
   

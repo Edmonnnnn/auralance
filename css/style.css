@@ -26,3 +26,41 @@ body {
   .jobs-cards { flex-direction: column; }
   .working-remotely-img { width: 92vw; max-width: 370px; }
 }
+
+
+.job-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    transition: transform 0.2s ease;
+  }
+  .job-card:hover {
+    transform: translateY(-4px);
+  }
+  .job-card h3 {
+    margin-top: 0;
+    color: #2394fd;
+  }
+  .job-card p {
+    margin: 6px 0;
+  }
+
+
+  
+  .fav-btn {
+    background-color: #fff0f0;
+    border: 1px solid #ffcccc;
+    color: #cc0000;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  .fav-btn:hover {
+    background-color: #ffdddd;
+  }
+  
+  
