@@ -1,4 +1,303 @@
 🌐 Auralance — Find Your Best Freelance Aura
+
+Auralance is a web platform for freelancers that simplifies searching, filtering, and managing freelance jobs.
+The project includes an intuitive UI, favorites system, search history, export functionality, authentication, and a backend API with optional parser and Telegram bot integration.
+
+📌 Project Goals
+
+🔍 Simplify freelance job discovery by keywords and categories
+⭐ Allow users to save and manage favorite jobs
+🧠 Track and export search history
+🚀 Integrate a mock/real job parser
+🔐 Provide authentication and access to a personal profile
+🛠 Build a scalable, modular architecture
+
+⚙️ Tech Stack
+Component	Technologies
+Frontend	HTML5, CSS3, Vanilla JS
+Backend	FastAPI, Python
+Database	SQLite (dev), PostgreSQL (prod)
+Auth	JWT (via httpOnly cookies)
+Parser	Mock API, real parser planned
+Hosting	Local, Docker (planned)
+🗂 Project Structure
+/auralance-landing
+├── frontend/
+│   ├── find-work.html
+│   ├── favorites.html
+│   ├── history.html
+│   ├── profile.html
+│   ├── login.html
+│   ├── signup.html
+│   ├── css/
+│   ├── js/
+│   └── assets/
+│
+├── backend/
+│   ├── main.py
+│   ├── db.py
+│   ├── auth.py
+│   ├── parser.py
+│   ├── history.py
+│   ├── routers/
+│   │   ├── jobs.py
+│   │   ├── filters.py
+│   │   ├── logs.py
+│
+├── README.md
+└── requirements.txt
+
+🚀 How to Run
+🔧 Backend
+cd backend
+python -m venv venv
+source venv/bin/activate       # Windows: venv\Scripts\activate
+pip install -r requirements.txt
+uvicorn main:app --reload
+
+
+Available at: http://127.0.0.1:8000
+
+🌍 Frontend
+
+Open any HTML file with Live Server in VS Code
+—or open the file directly in the browser
+(e.g., find-work.html → localhost:5500)
+
+🔑 Test Users
+Email	Password
+admin@example.com
+	password
+✅ Implemented Modules
+🔍 Job Search (find-work.html + findwork.js)
+
+Keyword & category search
+
+Sends request to /parser/run
+
+Displays job cards
+
+“Search” stores history (/history/save)
+
+Add job to Favorites
+
+⭐ Favorites (favorites.html)
+
+Stored in localStorage
+
+Remove from favorites
+
+Dynamic UI updates
+
+🧠 History (history.html)
+
+Shows previous searches
+
+Buttons:
+
+🔁 Repeat Last — runs previous search
+
+🗑 Clear History (DELETE /history/clear)
+
+💾 Export (GET /history/export → JSON/CSV)
+
+🔐 Auth & Profile
+
+/auth/register, /auth/login
+
+JWT token in httpOnly cookie
+
+/auth/me returns profile data
+
+UI updates after login
+
+🧾 Export
+
+Export search history as JSON/CSV.
+
+Example JSON:
+
+[
+  {
+    "keywords": "python",
+    "category": "development",
+    "date": "2025-07-17"
+  }
+]
+
+🔜 Roadmap
+
+Real parser instead of mock
+
+Telegram bot for job notifications
+
+Admin panel (parser status, logs, metrics)
+
+Subscription & payments
+
+Docker build
+
+Optional WebSocket updates
+
+🧪 QA — Tester Instructions
+✅ Requirements
+
+Python 3.10+ installed
+
+VS Code + Live Server extension
+
+(Optional) PostgreSQL for production testing
+
+🔁 Testing Steps
+1. System Startup
+
+Run backend: uvicorn main:app --reload
+
+Open frontend via Live Server
+
+Ensure no console errors
+
+2. Authentication
+
+Go to login.html
+
+Sign in with test credentials
+
+Verify:
+
+Cookie is set
+
+UI updates (Profile visible)
+
+/auth/me works
+
+3. Search & Parser
+
+On find-work.html search for: python, category: development
+
+Verify:
+
+Job cards appear
+
+Search history is saved
+
+4. Favorites
+
+Click ⭐ on a job
+
+Open favorites.html
+
+Verify:
+
+Card is present
+
+Removal updates UI + localStorage
+
+5. History Page
+
+Open history.html
+
+Verify:
+
+Entries appear
+
+🔁 restores filters and repeats search
+
+🗑 clears history
+
+💾 exports JSON & CSV
+
+6. Profile
+
+Open profile.html
+
+Ensure data loads from /auth/me
+
+🧼 Stability Testing
+
+Stop backend → frontend should show an error
+
+Delete cookie → accessing favorites should trigger redirect or error
+
+Test on Chrome/Firefox/Safari
+
+📊 Reporting
+
+Tester must provide:
+
+List of bugs
+
+Screenshots of UI + DevTools
+
+Exported history (JSON/CSV)
+
+📋 Requirements Status
+Module	Status	Notes
+Search	✅ Done	Full search + parser mock
+Favorites	✅ Done	Stored locally
+History	✅ Done	Repeat, export, clear
+Auth + Profile	✅ Done	JWT cookies
+Parser (mock)	✅ Done	/parser/run
+Real Parser	🔜 Planned	
+Telegram Bot	🔜 Planned	
+Subscription/Payments	🔜 Planned	
+Admin Panel	❌ Not implemented	Simplified
+📎 Dev Tips
+
+Use localStorage for favorites and filters
+
+Structure JS/CSS modules logically
+
+Test responsiveness (375 / 768 / 1200 px)
+
+Add comments and TODO markers
+
+Keep modules independent and back up often
+
+🧩 Completed vs. Missing (based on full specification)
+✔️ Implemented (and included in README)
+
+Job search
+
+Favorites
+
+Search history + export
+
+Auth + profile
+
+Mock parser
+
+Roadmap features listed
+
+❌ Missing from README but required by full spec
+Missing Feature	What Should Exist
+Admin panel	Dashboard, module statuses
+Logs	UI + filtering
+Job browser	Full job table with filters
+CRUD filters	Backend-managed filters
+Process management	Parser start/stop/reset
+Metrics	/metrics, Prometheus export
+Admin roles	Role model, protected endpoints
+Monitoring	Active tasks, error counts
+🧭 Next Steps
+
+Create an admin-ui/ module (React + Tailwind recommended)
+
+Implement backend endpoints: /jobs, /logs, /filters, /start_job, /status
+
+Add roles to users (admin/user)
+
+Add pagination/sorting to /jobs
+
+Generate full OpenAPI spec
+
+Add Prometheus-compatible metrics
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+🌐 Auralance — Find Your Best Freelance Aura
 Auralance — это веб-платформа для фрилансеров, упрощающая поиск, фильтрацию и управление вакансиями. Проект включает интуитивный UI, систему избранного, историю, экспорт, авторизацию и backend API с возможностью подключения парсера и Telegram-бота.
 
 📌 Цели проекта
